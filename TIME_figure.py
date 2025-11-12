@@ -2,25 +2,20 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-# --- Leer CSV ---
 df = pd.read_csv('./Resultados/TIME_SPEED_results.csv', encoding='latin1')
 df.columns = df.columns.str.strip()
 
-# --- Configurar datos ---
 algos = df['Algoritmo'].unique()
 x = np.arange(len(algos))
 width = 0.35
 
-# Promedios para cada algoritmo
 times_encrypt = [df[df['Algoritmo']==algo]['Tiempo Encrypt (s)'].mean() for algo in algos]
 times_decrypt = [df[df['Algoritmo']==algo]['Tiempo Decrypt (s)'].mean() for algo in algos]
 speeds_encrypt = [df[df['Algoritmo']==algo]['Velocidad Encrypt (bytes/s)'].mean() for algo in algos]
 speeds_decrypt = [df[df['Algoritmo']==algo]['Velocidad Decrypt (bytes/s)'].mean() for algo in algos]
 
-# --- Crear figura ---
 fig, ax1 = plt.subplots(figsize=(12,6))
 
-# Barras de Tiempo
 bars1 = ax1.bar(x - width/2, times_encrypt, width, color='skyblue', label='Tiempo Encrypt (s)')
 bars2 = ax1.bar(x + width/2, times_decrypt, width, color='lightgreen', label='Tiempo Decrypt (s)')
 
@@ -30,7 +25,6 @@ ax1.set_xticks(x)
 ax1.set_xticklabels(algos)
 ax1.legend(loc='upper left')
 
-# --- Velocidades en segundo eje Y ---
 ax2 = ax1.twinx()
 ax2.plot(x, speeds_encrypt, color='orange', marker='o', linestyle='-', label='Velocidad Encrypt (bytes/s)')
 ax2.plot(x, speeds_decrypt, color='red', marker='o', linestyle='-', label='Velocidad Decrypt (bytes/s)')

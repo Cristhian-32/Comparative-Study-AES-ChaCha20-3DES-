@@ -1,10 +1,8 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# --- Cargar datos ---
 df = pd.read_csv('./Resultados/CPU_results.csv')
 
-# --- Gráfico 1: Encriptación ---
 plt.figure(figsize=(10,6))
 for algo in df['Algoritmo'].unique():
     subset = df[df['Algoritmo'] == algo]
@@ -18,7 +16,6 @@ plt.grid(True)
 plt.tight_layout()
 plt.show()
 
-# --- Gráfico 2: Desencriptación ---
 plt.figure(figsize=(10,6))
 for algo in df['Algoritmo'].unique():
     subset = df[df['Algoritmo'] == algo]

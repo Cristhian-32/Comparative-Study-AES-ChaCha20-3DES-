@@ -1,2 +1,42 @@
+# ===============================
+# 🐍 Archivos de Python
+# ===============================
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+*.pdb
+*.egg
+*.egg-info/
+*.log
+
+# ===============================
+# 🧪 Archivos de entorno y configuración
+# ===============================
+.env
+.venv/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# ===============================
+# 📦 Archivos del sistema
+# ===============================
+.DS_Store
+Thumbs.db
+
+# ===============================
+# 🚫 Archivos y carpetas del proyecto
+# ===============================
+Resultados/
+Dockerfile
+
+# ===============================
+# 🧰 Herramientas y dependencias
+# ===============================
+.idea/
+.vscode/
+__pycache__/
+.cache/
+.ipynb_checkpoints/
